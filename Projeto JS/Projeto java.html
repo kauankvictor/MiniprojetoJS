@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doris Atacado</title>
+</head>
+<body>
+    <script>
+        alert("Seja bem vindo(a) ao Doris Atacado, aqui você encontra os melhores preços do mercado em alimentos");
+
+
+        var catalogo = ["Feijão macarena", "Arroz chinês", "Mortadela seara", "Ovo caipira", "Frango perdigão"];
+
+
+        var resp;
+        do {
+            resp = prompt("O que pretnde fazer?\n1 - Adicionar produto\n2 - Atualizar produto\n3 - Visualizar catálogo\n4 - Excluir produto\n5 - Sair");
+
+
+            if (resp === '1') {
+                var novoprodu = prompt("Qual produto você quer adicionar:");
+                catalogo.push(novoprodu);
+                alert(`produto "${novoprodu}" adicionado`);
+            } else if (resp === '2') {
+                alert("Catálogo:\n" + catalogo.join('\n'));
+                var atualizaprodu = prompt("Digite o produto que voce deseja atualizar:");
+                var novonome = prompt("Digite o novo nome para o produto:");
+                var index = catalogo.indexOf(atualizaprodu);
+                if (index !== -1) {
+                    catalogo[index] = novonome;
+                    alert(`produto "${atualizaprodu}" atualizado para "${novonome}".`);
+                } else {
+                    alert(`produto "${atualizaprodu}" não foi. encontrado.`);
+                }
+            } else if (resp === '3') {
+                alert(`Catálogo:\n${catalogo.join('\n')}`);
+            } else if (resp === '4') {
+                var excluirprodu = prompt("Digite o nome do produto que deseja excluir:");
+                var index = catalogo.indexOf(excluirprodu);
+                if (index !== -1) {
+                    catalogo.splice(index, 1);
+                    alert(`produto "${excluirprodu}" excluído com sucesso.`);
+                } else {
+                    alert(`produto "${excluirprodu}" não encontrado.`);
+                }
+            } else if (resp === "5") {
+                alert("Obrigado por comprar no Doris Atacado, volte sempre amigo!");
+                var cart = Number(prompt("Deseja fazer o cartão da loja?\n1 - Sim\n2 - Não"))
+                    if (cart == 1){
+                        var cpf = Number(prompt("Digite seu cpf: "))
+                        var nome = prompt("digite seu nome completo")
+                        var idade = Number(prompt("digite sua idade"))
+                        if (idade >= 18){
+                            alert(`Cadastro feito! ${nome} seu cartão Doris Atacado chegará em 8 dias, com muito cashback e desconto em nossa loja!`)
+                            alert("Até mais!")
+                        }else{
+                            alert("Menor de idade, não pode fazer o cartão :(")
+                        }
+                        break;
+                    }else{
+                        alert("Até mais")
+                        break;
+                    }
+
+
+            } else {
+                alert("Opção inválida. Por favor, escolha uma opção válida.");
+            }
+        } while (resp !== '5');
+    </script>
+</body>
+</html>
